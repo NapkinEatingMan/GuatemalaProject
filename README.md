@@ -11,5 +11,5 @@
 4. Right click anywhere in the whitespace
 5. Click 'open a terminal'
 6. Download the pymupdf library by running the following command `python -m pip install pymupdf`
-7. Once complete run this command `python3 .src/parsePdf.py`
+7. Once complete run this command `python3 ./src/parsePdf.py`
 8. Profit
