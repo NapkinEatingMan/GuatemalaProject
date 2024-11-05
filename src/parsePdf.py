@@ -21,11 +21,12 @@ data = {'Location':[],
         'Names of victims':[],
         'Number of victims without identification':[]
         }
-print("CHECKPOINT ONE")
 left_rect = fitz.Rect(40,30,173,700)
 right_rect = fitz.Rect(178, 30, 612, 700)
 left = ""
 right = ""
+
+print("Please wait while this parses the structure...")
 
 for page in doc:
     if (page.number >= 2471 and page.number < 2851) or (page.number >= 2865 and page.number < 3242) or (page.number >= 3251 and page.number < 3689) or (page.number >= 3705 and page.number <= 4120):
@@ -33,7 +34,7 @@ for page in doc:
         left += "\n"
         right += (page.get_textbox(right_rect))
         right += "\n"
-print("CHECKPOINT TWO")
+
 
 #left = re.sub("\wnewpage\w", "test", left)
 left = re.sub("\n+", "\n", left)
@@ -104,3 +105,4 @@ with open('output2.csv', 'w', newline='') as output:
         writer.writerow(result)
 
 #print(text)
+print("Finished, check the output.csv in your local directory :)")
