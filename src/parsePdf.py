@@ -55,19 +55,19 @@ right = re.sub("Víctimas sin identificar: \d", "Víctimas sin identificar: \n",
 right = right.split("\n")
 for x in range(len(right)):
     #print(right[x]+"\n------------")
-    #if "Víctimas sin identificar:" in right[x]:
-        #right[x] = right[x].replace("Víctimas sin identificar: ", "")
-        #m = re.match("^\d", right[x]).group()
-        #right[x] = right[x][int(m)]
-        #data['Number of victims without identification'].append(m)
-    #else:
-    data['Number of victims without identification'].append("")
-    data['Description of the event'].append("")
-    data['Names of victims'].append("")
+    if "Víctimas sin identificar:" in right[x]:
+        right[x] = right[x].replace("Víctimas sin identificar: ", "")
+        m = re.match("^\d", right[x]).group()
+        right[x] = right[x][int(m)]
+        data['Number of victims without identification'].append(m)
+    else:
+        data['Number of victims without identification'].append("")
+        data['Description of the event'].append("")
+        data['Names of victims'].append("")
     
 
 #print(right)
-
+print("Cleaning up data...")
 count = len(left)
 next = 0
 for x in range(count):
